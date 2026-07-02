@@ -1,0 +1,22 @@
+version: 1
+project:
+  title: 量潮DevOps标准
+  description: 量潮科技DevOps标准规范
+  keywords: [devops, specification, contract]
+  authors:
+    - name: 量潮科技
+      email: opensource@quanttide.com
+  github: https://github.com/quanttide/quanttide-specification-of-devops
+  source: https://github.com/quanttide/quanttide-specification-of-devops/tree/main
+  toc:
+    - file: README.md
+    - title: 契约文件规范
+      children:
+        - file: contract/index.md
+        - file: contract/stage.md
+        - file: contract/platform.md
+        - file: contract/source.md
+        - file: contract/scope.md
+
+site:
+  template: book-theme
