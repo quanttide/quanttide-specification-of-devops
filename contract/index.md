@@ -51,47 +51,4 @@ scopes:
     ci_workflow: studio-pipeline
 ```
 
-## 最小示例
 
-只定义 scope，其余用默认值：
-
-```yaml
-scopes:
-  cli:
-    dir: src/cli
-```
-
-`language`、`build_tool` 等字段自动检测。所有维度使用默认值。
-
-## 覆盖语义（浅覆盖）
-
-Scope 级有值就用 scope 的，没有就用全局的。不是深度合并。
-
-```yaml
-stages:
-  test:
-    threshold: 70
-
-scopes:
-  cli:
-    dir: src/cli
-    # test_threshold 未设置 → 使用全局 70
-  sensitive:
-    dir: src/sensitive
-    test_threshold: 95  # 覆盖全局
-```
-
-## 向下兼容
-
-旧格式 `scopes: { name: dir }`（简单键值对）已不再支持。所有 `contract.yaml` 必须使用新格式（scope 值为对象）。旧格式迁移：
-
-```yaml
-# 旧格式（不再支持）
-scopes:
-  cli: src/cli
-
-# 新格式
-scopes:
-  cli:
-    dir: src/cli
-```
