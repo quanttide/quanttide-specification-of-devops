@@ -13,13 +13,11 @@ stages:
 
 ## 字段
 
-| 字段 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| `build.command` | `string` 或 `null` | `null` | 构建命令 |
-| `test.command` | `string` 或 `null` | `null` | 测试命令 |
-| `test.threshold` | `float` | `70.0` | 覆盖率阈值（百分比） |
-| `release.changelog` | `string` | `"CHANGELOG.md"` | CHANGELOG 文件路径 |
-| `release.pre_publish` | `string[]` | `[]` | 发布前执行的脚本列表 |
+- `build.command` — 类型：`string` 或 `null`，默认值：`null`。构建命令。
+- `test.command` — 类型：`string` 或 `null`，默认值：`null`。测试命令。
+- `test.threshold` — 类型：`float`，默认值：`70.0`。覆盖率阈值（百分比）。
+- `release.changelog` — 类型：`string`，默认值：`"CHANGELOG.md"`。CHANGELOG 文件路径。
+- `release.pre_publish` — 类型：`string[]`，默认值：`[]`。发布前执行的脚本列表。
 
 ## 示例
 

@@ -19,40 +19,28 @@ scopes:
 
 ## 字段
 
-| 字段 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| `dir` | `string` | — | **必填**。子目录路径（相对于仓库根目录） |
-| `language` | `string` | `"auto"`（自动检测） | 编程语言 |
-| `framework` | `string` | `""` | 框架名称 |
-| `build_tool` | `string` | `"auto"`（自动检测） | 构建工具 |
-| `registry` | `string` | 继承全局 `platform.artifact_registry` | 制品库 |
-| `release` | `object` | 继承全局 `stages.release` | 发布配置 |
-| `test_threshold` | `float` 或 `null` | 继承全局 `stages.test.threshold` | 测试阈值 |
-| `ci_workflow` | `string` 或 `null` | 按 `build-{scope}` 约定 | CI workflow 名称 |
+- `dir` — 类型：`string`，必填。子目录路径（相对于仓库根目录）。
+- `language` — 默认值：自动检测（`auto`）。编程语言。
+  - `rust` — Rust
+  - `python` — Python
+  - `go` — Go
+  - `dart` — Dart
+  - `typescript` / `ts` / `node` — TypeScript
+  - 其他值 — 视为 `Unknown`，不崩溃
+- `framework` — 类型：`string`，默认值：`""`。框架名称。
+- `build_tool` — 默认值：自动检测（`auto`）。构建工具。
+  - `cargo` — Cargo（Rust）
+  - `uv` / `poetry` / `pdm` — uv（Python）
+  - `go` — Go
+  - `flutter` — Flutter（Dart）
+  - `npm` / `pnpm` / `yarn` / `bun` — npm（Node）
+  - 其他值 — 视为 `Unknown`，不崩溃
+- `registry` — 默认值：继承全局 `platform.artifact_registry`。制品库（可选值与 Platform 一致）。
+- `release` — 类型：`object`，默认值：继承全局 `stages.release`。发布配置（可选字段与 Stage 一致）。
+- `test_threshold` — 类型：`float` 或 `null`，默认值：继承全局 `stages.test.threshold`。测试阈值。
+- `ci_workflow` — 类型：`string` 或 `null`，默认值：按 `build-{scope}` 约定。CI workflow 名称。
 
-### language 枚举
-
-| YAML 值 | Rust 变体 | 说明 |
-|---------|-----------|------|
-| `rust` | `Rust` | Rust |
-| `python` | `Python` | Python |
-| `go` | `Go` | Go |
-| `dart` | `Dart` | Dart |
-| `typescript` / `ts` / `node` | `TypeScript` | TypeScript |
-| (其他) | `Unknown(s)` | 未知语言，不崩溃 |
-
-### build_tool 枚举
-
-| YAML 值 | Rust 变体 | 说明 |
-|---------|-----------|------|
-| `cargo` | `Cargo` | Cargo（Rust） |
-| `uv` / `poetry` / `pdm` | `Uv` | Python 构建工具 |
-| `go` | `Go` | Go |
-| `flutter` | `Flutter` | Flutter（Dart） |
-| `npm` / `pnpm` / `yarn` / `bun` | `Npm` | Node 包管理器 |
-| (其他) | `Unknown(s)` | 未知工具，不崩溃 |
-
-### 覆盖语义
+## 覆盖语义
 
 Scope 的覆盖是**浅覆盖**：scope 级有值就用 scope 的，没有就用全局的。
 
