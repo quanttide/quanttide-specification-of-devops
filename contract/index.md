@@ -11,13 +11,6 @@ sources:     # 事实源维度 — 真相的本质
 scopes:      # 上下文维度 — 规则的作用范围
 ```
 
-各维度详细配置见：
-
-- [Stage 配置](stage.md) — 构建/测试/发布阶段
-- [Platform 配置](platform.md) — 源代码管理/CI/制品库
-- [Source 配置](source.md) — 版本号来源
-- [Scope 配置](scope.md) — 作用域定义与覆盖
-
 ## 完整示例
 
 ```yaml
